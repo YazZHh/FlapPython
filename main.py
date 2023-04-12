@@ -5,13 +5,13 @@ pygame.init()
 
 
 fenetre = pygame.display.set_mode((360,600))
-arriere_plan = (255, 255, 255)
+arriere_plan = pygame.image.load('C:/Users/Noah/Documents/code/FlapPython/photos/fond.jpg')
 jeu = Jeu()
 
 temps = pygame.time.Clock()
 etat = True
 while etat:
-    fenetre.fill(arriere_plan)
+    fenetre.blit(arriere_plan, (0, 0))
     fenetre.blit(jeu.dragon.image, jeu.dragon.rect)
     jeu.toutes_tours.draw(fenetre)
 

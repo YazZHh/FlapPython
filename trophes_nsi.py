@@ -4,7 +4,7 @@ import pygame
 pygame.init()
 
 
-fenetre = pygame.display.set_mode((360,600))
+fenetre = pygame.display.set_mode((400,600))
 arriere_plan = (255, 255, 255)
 jeu = Jeu()
 

@@ -12,7 +12,7 @@ class Tours(pygame.sprite.Sprite):
         self.vitesse = 2.75
         self.bas = boolen
         
-        self.image = pygame.image.load('C:/Users/Noah/Documents/code/FlapPython/photos/tours.png')
+        self.image = pygame.image.load('photos/tours.png')
         self.image = pygame.transform.scale(self.image, (80, self.taille))
         self.rect = self.image.get_rect()
         self.rect.y = y

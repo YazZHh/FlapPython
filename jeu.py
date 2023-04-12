@@ -9,9 +9,9 @@ class Jeu:
     def __init__(self):
         self.dragon = Dragon(self)
 
-        self.taille_tour = random.randint(100, 400)
+        self.taille_tour = random.randint(100, 350)
         self.tour1 = Tours(self, self.taille_tour, 0)
-        self.tour2 = Tours(self, 500-self.taille_tour, self.taille_tour - 100)
+        self.tour2 = Tours(self, 500-self.taille_tour, self.taille_tour + 150)
         self.toutes_tours = pygame.sprite.Group()
 
 

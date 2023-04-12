@@ -16,6 +16,8 @@ while etat:
     jeu.toutes_tours.draw(fenetre)
 
     jeu.dragon.gravite()
+    for tour in jeu.toutes_tours:
+        tour.deplacement()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

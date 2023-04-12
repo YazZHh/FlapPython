@@ -8,7 +8,7 @@ class Dragon(pygame.sprite.Sprite):
         self.jeu = Jeu
         self.vitesse = 1.5
         
-        self.image = pygame.image.load('C:/Users/Noah/OneDrive/PGM/trophé nsi/trophés_nsi/photos/dragon.png')
+        self.image = pygame.image.load('C:/Users/Noah/Documents/code/FlapPython/photos/dragon.png')
         self.image = pygame.transform.scale(self.image, (80, 80))
         self.rect = self.image.get_rect()
         self.rect.x = 150

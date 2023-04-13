@@ -1,10 +1,10 @@
-from dragon import Dragon
-from jeu import Jeu
+from src.dragon import Dragon
+from src.jeu import Jeu
 import pygame
 
 pygame.init()
 
-window = pygame.display.set_mode((360,600))
+window = pygame.display.set_mode((360, 600))
 background = pygame.image.load("photos/fond.jpg")
 jeu = Jeu()
 

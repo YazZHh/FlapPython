@@ -1,32 +1,32 @@
 from src.dragon import Dragon
-from src.jeu import Jeu
+from src.game import Game
 import pygame
 
 pygame.init()
 
 window = pygame.display.set_mode((360, 600))
 background = pygame.image.load("photos/fond.jpg")
-jeu = Jeu()
+game = Game()
 
-temps = pygame.time.Clock()
+clock = pygame.time.Clock()
 running = True
 
 while running:
     window.blit(background, (0, 0))
-    window.blit(jeu.dragon.image, jeu.dragon.rect)
-    jeu.toutes_tours.draw(window)
+    window.blit(game.dragon.image, game.dragon.rect)
+    game.toutes_tours.draw(window)
 
-    jeu.dragon.gravite()
-    for tour in jeu.toutes_tours:
+    game.dragon.gravite()
+    
+    for tour in game.toutes_tours:
         tour.deplacement()
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
             pygame.quit()
-        elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE:
-                jeu.debut()
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+            game.start()
 
-    temps.tick(60)
+    clock.tick(60)
     pygame.display.flip()

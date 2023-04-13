@@ -1,11 +1,11 @@
 import pygame
 import random
-from dragon import Dragon
-from tours import Tours
+from src.dragon import Dragon
+from src.tours import Tours
 
 
 class Jeu:
-    
+
     def __init__(self):
         self.dragon = Dragon(self)
 
@@ -13,7 +13,6 @@ class Jeu:
         self.tour1 = Tours(self, self.taille_tour, 0, False)
         self.tour2 = Tours(self, 500-self.taille_tour, self.taille_tour + 150)
         self.toutes_tours = pygame.sprite.Group()
-
 
         self.pret = False
 
@@ -33,4 +32,3 @@ class Jeu:
     def saut(self):
         if self.dragon.rect.y > 10:
             self.dragon.rect.y -= 75
-    

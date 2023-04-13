@@ -13,7 +13,6 @@ class Game:
         self.tour1 = Tours(self, self.taille_tour, 0, False)
         self.tour2 = Tours(self, 500-self.taille_tour, self.taille_tour + 150)
         self.toutes_tours = pygame.sprite.Group()
-
         self.pret = False
 
     def creation_tour(self):
@@ -22,7 +21,7 @@ class Game:
         self.tour1 = Tours(self, self.taille_tour, 0, False)
         self.tour2 = Tours(self, 500-self.taille_tour, self.taille_tour + 150)
 
-    def debut(self):
+    def start(self):
         if not self.pret:
             self.creation_tour()
             self.pret = True
@@ -31,4 +30,4 @@ class Game:
 
     def saut(self):
         if self.dragon.rect.y > 10:
-            self.dragon.rect.y -= 75
+            self.dragon.vitesse_descendante = -8

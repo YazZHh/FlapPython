@@ -3,8 +3,6 @@ import random
 from src.dragon import Dragon
 from src.tours import Tours
 
-pygame.init()
-
 class Game:
 
     def __init__(self):

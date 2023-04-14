@@ -1,5 +1,6 @@
 from src.dragon import Dragon
 from src.game import Game
+from src.floor import Floor
 import pygame
 import sys
 
@@ -7,10 +8,13 @@ pygame.init()
 
 window = pygame.display.set_mode((360, 600))
 background = pygame.image.load("img/fond.jpg")
-game = Game()
 
 clock = pygame.time.Clock()
 running = True
+
+game = Game()
+floor = Floor()
+# floor.build()
 
 while running:
     window.blit(background, (0, 0))
@@ -18,9 +22,13 @@ while running:
     game.toutes_tours.draw(window)
 
     game.dragon.gravite()
-    
+
     for tour in game.toutes_tours:
         tour.deplacement()
+
+    if game.pret:
+        floor.move()
+    floor.sprite.draw(window)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

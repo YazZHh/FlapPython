@@ -5,7 +5,7 @@ import pygame
 pygame.init()
 
 window = pygame.display.set_mode((360, 600))
-background = pygame.image.load("photos/fond.jpg")
+background = pygame.image.load("img/fond.jpg")
 game = Game()
 
 clock = pygame.time.Clock()

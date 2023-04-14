@@ -5,19 +5,19 @@ pygame.init()
 
 class Tours(pygame.sprite.Sprite):
 
-    def __init__(self, Jeu, taille, y, boolen=True):
+    def __init__(self, Jeu, taille, x, y, boolen=True):
         super().__init__()
         self.jeu = Jeu
 
         self.taille = taille
-        self.vitesse = 2.75
+        self.vitesse = 2.5
         self.bas = boolen
         
         self.image = pygame.image.load('img/tours.png')
         self.image = pygame.transform.scale(self.image, (80, self.taille))
         self.rect = self.image.get_rect()
         self.rect.y = y
-        self.rect.x = random.randint(360, 400)
+        self.rect.x = x
 
         self.rotation()
 

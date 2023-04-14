@@ -1,8 +1,6 @@
 import pygame
 import random
 
-pygame.init()
-
 class Tours(pygame.sprite.Sprite):
 
     def __init__(self, Jeu, taille, y, boolen=True):

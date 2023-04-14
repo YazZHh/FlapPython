@@ -1,6 +1,7 @@
 from src.dragon import Dragon
 from src.game import Game
 import pygame
+import sys
 
 pygame.init()
 
@@ -25,6 +26,7 @@ while running:
         if event.type == pygame.QUIT:
             running = False
             pygame.quit()
+            sys.exit()
         elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
             game.start()
 

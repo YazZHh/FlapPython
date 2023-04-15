@@ -27,13 +27,13 @@ class Game:
         self.taille_tour = random.randint(100, 350)
         self.tour1 = Tours(self, self.taille_tour, 310, 0, False)
         self.tour2 = Tours(self, 500-self.taille_tour, 310, self.taille_tour + 150)
-        
+
         self.toutes_tours2.add(self.tour3)
         self.toutes_tours2.add(self.tour4)
         self.taille_tour = random.randint(100, 350)
         self.tour3 = Tours(self, self.taille_tour, 510, 0, False)
         self.tour4 = Tours(self, 500-self.taille_tour, 510, self.taille_tour + 1501)
-        
+
 
     def start(self):
         if not self.pret:

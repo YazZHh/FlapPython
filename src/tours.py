@@ -20,16 +20,16 @@ class Tours(pygame.sprite.Sprite):
         self.rotation()
 
 
-    def deplacement(self, speudo):
+    def deplacement(self, pseudo):
         if self.jeu.pret:
             if self.rect.x >= 0:
                 self.rect.x -= self.vitesse
             elif self.rect.x <= 0:
-                if speudo == 1:
+                if pseudo == 1:
                     self.jeu.toutes_tours1 = pygame.sprite.Group()
                 else:
                     self.jeu.toutes_tours2 = pygame.sprite.Group()
-                self.jeu.respawn(speudo)
+                self.jeu.respawn(pseudo)
 
 
     def rotation(self):

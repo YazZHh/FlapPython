@@ -8,7 +8,7 @@ class Tours(pygame.sprite.Sprite):
         self.jeu = Jeu
 
         self.taille = taille
-        self.vitesse = 2.5
+        self.vitesse = 2.65
         self.bas = boolen
         
         self.image = pygame.image.load('img/tours.png')
@@ -20,9 +20,17 @@ class Tours(pygame.sprite.Sprite):
         self.rotation()
 
 
-    def deplacement(self):
-        if self.jeu.pret and self.rect.x >= 0:
-            self.rect.x -= self.vitesse
+    def deplacement(self, speudo):
+        if self.jeu.pret:
+            if self.rect.x >= 0:
+                self.rect.x -= self.vitesse
+            elif self.rect.x <= 0:
+                if speudo == 1:
+                    self.jeu.toutes_tours1 = pygame.sprite.Group()
+                else:
+                    self.jeu.toutes_tours2 = pygame.sprite.Group()
+                self.jeu.respawn(speudo)
+
 
     def rotation(self):
         if not self.bas:

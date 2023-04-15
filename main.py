@@ -14,7 +14,7 @@ running = True
 
 game = Game()
 floor = Floor()
-# floor.build()
+floor2 = Floor(360)
 
 while running:
     window.blit(background, (0, 0))
@@ -28,7 +28,9 @@ while running:
 
     if game.pret:
         floor.move()
+        floor2.move()
     floor.sprite.draw(window)
+    floor2.sprite.draw(window)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:

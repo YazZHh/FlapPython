@@ -12,6 +12,6 @@ class Dragon(pygame.sprite.Sprite):
 
     def gravite(self):
         if self.jeu.pret:
-            if self.rect.y < 540:
+            if self.rect.y < 460:
                 self.rect.y += self.vitesse_descendante
                 self.vitesse_descendante += 0.45

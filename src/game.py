@@ -7,17 +7,33 @@ class Game:
 
     def __init__(self):
         self.dragon = Dragon(self)
+
+
         self.taille_tour = random.randint(100, 350)
-        self.tour1 = Tours(self, self.taille_tour, 0, False)
-        self.tour2 = Tours(self, 500-self.taille_tour, self.taille_tour + 150)
-        self.toutes_tours = pygame.sprite.Group()
+        self.tour1 = Tours(self, self.taille_tour, 310, 0, False)
+        self.tour2 = Tours(self, 500-self.taille_tour, 310, self.taille_tour + 150)
+        self.toutes_tours1 = pygame.sprite.Group()
+
+        self.taille_tour = random.randint(100, 350)
+        self.tour3 = Tours(self, self.taille_tour, 510, 0, False)
+        self.tour4 = Tours(self, 500-self.taille_tour, 510, self.taille_tour + 150)
+        self.toutes_tours2 = pygame.sprite.Group()
+
         self.pret = False
 
     def creation_tour(self):
-        self.toutes_tours.add(self.tour1)
-        self.toutes_tours.add(self.tour2)
-        self.tour1 = Tours(self, self.taille_tour, 0, False)
-        self.tour2 = Tours(self, 500-self.taille_tour, self.taille_tour + 150)
+        self.toutes_tours1.add(self.tour1)
+        self.toutes_tours1.add(self.tour2)
+        self.taille_tour = random.randint(100, 350)
+        self.tour1 = Tours(self, self.taille_tour, 310, 0, False)
+        self.tour2 = Tours(self, 500-self.taille_tour, 310, self.taille_tour + 150)
+
+        self.toutes_tours2.add(self.tour3)
+        self.toutes_tours2.add(self.tour4)
+        self.taille_tour = random.randint(100, 350)
+        self.tour3 = Tours(self, self.taille_tour, 510, 0, False)
+        self.tour4 = Tours(self, 500-self.taille_tour, 510, self.taille_tour + 1501)
+
 
     def start(self):
         if not self.pret:
@@ -29,3 +45,19 @@ class Game:
     def saut(self):
         if self.dragon.rect.y > 10:
             self.dragon.vitesse_descendante = -8
+
+    def respawn(self, speudo):
+        self.tour1 = Tours(self, self.taille_tour, 410, 0, False)
+        self.tour2 = Tours(self, 500-self.taille_tour, 410, self.taille_tour + 150)
+        if speudo == 1:
+            self.toutes_tours1.add(self.tour1)
+            self.toutes_tours1.add(self.tour2)
+            self.taille_tour = random.randint(100, 350)
+            self.tour1 = Tours(self, self.taille_tour, 410, 0, False)
+            self.tour2 = Tours(self, 500-self.taille_tour, 410, self.taille_tour + 150)
+        else:
+            self.toutes_tours2.add(self.tour1)
+            self.toutes_tours2.add(self.tour2)
+            self.taille_tour = random.randint(100, 350)
+            self.tour1 = Tours(self, self.taille_tour, 410, 0, False)
+            self.tour2 = Tours(self, 500-self.taille_tour, 410, self.taille_tour + 150)

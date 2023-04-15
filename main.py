@@ -19,12 +19,16 @@ floor2 = Floor(360)
 while running:
     window.blit(background, (0, 0))
     window.blit(game.dragon.image, game.dragon.rect)
-    game.toutes_tours.draw(window)
+    game.toutes_tours1.draw(window)
+    game.toutes_tours2.draw(window)
 
     game.dragon.gravite()
 
-    for tour in game.toutes_tours:
-        tour.deplacement()
+    for tour in game.toutes_tours1:
+        tour.deplacement(1)
+
+    for tour in game.toutes_tours2:
+        tour.deplacement(2)
 
     if game.pret:
         floor.move()

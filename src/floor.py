@@ -17,4 +17,4 @@ class Floor(pygame.sprite.Sprite):
     def move(self):
         self.rect.move_ip(self.speed, 0)
         if self.rect.right < 0:
-            self.rect.left = 360
+            self.rect.left = 330

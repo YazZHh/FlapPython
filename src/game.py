@@ -46,10 +46,10 @@ class Game:
         if self.dragon.rect.y > 10:
             self.dragon.vitesse_descendante = -8
 
-    def respawn(self, speudo):
+    def respawn(self, pseudo):
         self.tour1 = Tours(self, self.taille_tour, 410, 0, False)
         self.tour2 = Tours(self, 500-self.taille_tour, 410, self.taille_tour + 150)
-        if speudo == 1:
+        if pseudo == 1:
             self.toutes_tours1.add(self.tour1)
             self.toutes_tours1.add(self.tour2)
             self.taille_tour = random.randint(100, 350)

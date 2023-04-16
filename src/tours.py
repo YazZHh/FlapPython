@@ -11,7 +11,7 @@ class Tours(pygame.sprite.Sprite):
         self.vitesse = 2.65
         self.bas = boolen
 
-        self.image = pygame.image.load('img/tours.png')
+        self.image = pygame.image.load('img/towers.png')
         self.image = pygame.transform.scale(self.image, (80, self.taille))
         self.rect = self.image.get_rect()
         self.rect.y = y

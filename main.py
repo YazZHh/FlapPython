@@ -7,7 +7,7 @@ import sys
 pygame.init()
 
 window = pygame.display.set_mode((360, 600))
-background = pygame.image.load("img/fond_2.png")
+background = pygame.image.load("img/background.png")
 background = pygame.transform.scale(background, (370, 620))
 
 clock = pygame.time.Clock()

@@ -4,7 +4,7 @@ class Floor(pygame.sprite.Sprite):
 
     def __init__(self, offset=0):
         super().__init__()
-        self.image = pygame.image.load("img/terre.jpg")
+        self.image = pygame.image.load("img/floor.jpg")
         self.width = self.image.get_width()
         self.height = self.image.get_height()
         self.x = 360 - offset

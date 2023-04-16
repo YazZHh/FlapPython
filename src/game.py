@@ -68,6 +68,5 @@ class Game:
             self.toutes_tours1 = pygame.sprite.Group()
             self.toutes_tours2 = pygame.sprite.Group()
             self.dragon.vitesse_descendante = -8
-            self.dragon.rect.x = 60
-            self.dragon.rect.y = 100
+            self.dragon.reset()
             self.dragon.image = self.dragon.image_normal

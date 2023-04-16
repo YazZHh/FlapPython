@@ -1,6 +1,7 @@
 import pygame
 
 class Floor(pygame.sprite.Sprite):
+
     def __init__(self, offset=0):
         super().__init__()
         self.image = pygame.image.load("img/terre.jpg")

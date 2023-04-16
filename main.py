@@ -32,9 +32,12 @@ while running:
     for tour in game.toutes_tours2:
         tour.deplacement(2)
 
+    game.dragon.rotation(game.pret)
+
     if game.pret:
         floor.move()
         floor2.move()
+        # game.dragon.rotation()
     floor.sprite.draw(window)
     floor2.sprite.draw(window)
 

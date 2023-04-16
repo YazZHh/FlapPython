@@ -15,3 +15,6 @@ class Dragon(pygame.sprite.Sprite):
             if self.rect.y < 460:
                 self.rect.y += self.vitesse_descendante
                 self.vitesse_descendante += 0.45
+
+    def check_collision(self, group):
+        return pygame.sprite.spritecollide(self, group, False, pygame.sprite.collide_mask)

@@ -22,9 +22,9 @@ class Tours(pygame.sprite.Sprite):
 
     def deplacement(self, pseudo):
         if self.jeu.pret:
-            if self.rect.x >= 0:
+            if self.rect.x >= -85:
                 self.rect.x -= self.vitesse
-            elif self.rect.x <= 0:
+            elif self.rect.x <= -85:
                 if pseudo == 1:
                     self.jeu.toutes_tours1 = pygame.sprite.Group()
                 else:

@@ -63,7 +63,7 @@ class Game:
             
 
     def game_over(self):
-        if self.dragon.rect.y >= 460 or (self.dragon.check_collision(self.toutes_tours1) and self.dragon.check_collision(self.toutes_tours1)):
+        if self.dragon.rect.y >= 460 or (self.dragon.check_collision(self.toutes_tours1) or self.dragon.check_collision(self.toutes_tours2)):
             self.pret = False
             self.toutes_tours1 = pygame.sprite.Group()
             self.toutes_tours2 = pygame.sprite.Group()

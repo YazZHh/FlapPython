@@ -25,10 +25,6 @@ class Tours(pygame.sprite.Sprite):
             if self.rect.x >= -85:
                 self.rect.x -= self.vitesse
             elif self.rect.x <= -85:
-                if pseudo == 1:
-                    self.jeu.toutes_tours1 = pygame.sprite.Group()
-                else:
-                    self.jeu.toutes_tours2 = pygame.sprite.Group()
                 self.jeu.respawn(pseudo)
 
 

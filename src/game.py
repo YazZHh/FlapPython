@@ -8,15 +8,7 @@ class Game:
     def __init__(self):
         self.dragon = Dragon(self)
 
-
-        self.taille_tour = random.randint(50, 350)
-        self.tour1 = Tours(self, self.taille_tour, 310, 0, False)
-        self.tour2 = Tours(self, 400-self.taille_tour, 310, self.taille_tour + 150)
         self.toutes_tours1 = pygame.sprite.Group()
-
-        self.taille_tour = random.randint(50, 350)
-        self.tour3 = Tours(self, self.taille_tour, 510, 0, False)
-        self.tour4 = Tours(self, 400-self.taille_tour, 510, self.taille_tour + 150)
         self.toutes_tours2 = pygame.sprite.Group()
 
         self.pret = False
@@ -50,16 +42,20 @@ class Game:
     def respawn(self, pseudo):
         if pseudo == 1:
             self.taille_tour = random.randint(50, 350)
-            self.tour1 = Tours(self, self.taille_tour, 410, 0, False)
-            self.tour2 = Tours(self, 400-self.taille_tour, 410, self.taille_tour + 150)
-            self.toutes_tours1.add(self.tour1)
-            self.toutes_tours1.add(self.tour2)
+            self.tour1.rect.x = 400
+            self.tour2.rect.x = 400
+            self.tour1.rect.y = 0
+            self.tour2.rect.y = self.taille_tour + 150
+            self.tour1.image = pygame.transform.scale(self.tour1.image, (80, self.taille_tour))
+            self.tour2.image = pygame.transform.scale(self.tour2.image, (80, 400 - self.taille_tour))
         else:
             self.taille_tour = random.randint(50, 350)
-            self.tour1 = Tours(self, self.taille_tour, 410, 0, False)
-            self.tour2 = Tours(self, 400-self.taille_tour, 410, self.taille_tour + 150)
-            self.toutes_tours2.add(self.tour1)
-            self.toutes_tours2.add(self.tour2)
+            self.tour3.rect.x = 400
+            self.tour4.rect.x = 400
+            self.tour3.rect.y = 0
+            self.tour4.rect.y = self.taille_tour + 150
+            self.tour3.image = pygame.transform.scale(self.tour3.image, (80, self.taille_tour))
+            self.tour4.image = pygame.transform.scale(self.tour4.image, (80, 400 - self.taille_tour))
             
 
     def game_over(self):

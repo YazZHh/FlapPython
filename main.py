@@ -24,7 +24,7 @@ while running:
     game.toutes_tours2.draw(window)
 
     game.dragon.gravite()
-    game.game_over()
+    # game.game_over()
 
     for tour in game.toutes_tours1:
         tour.deplacement(1)

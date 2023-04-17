@@ -21,8 +21,8 @@ class Game:
         self.toutes_tours1.add(self.tour2)
         
         self.taille_tour = random.randint(150, 350)
-        self.tour3 = Tours(self, self.taille_tour, 510, 0, False)
-        self.tour4 = Tours(self, 400-self.taille_tour, 510, self.taille_tour + 150)
+        self.tour3 = Tours(self, self.taille_tour, 560, 0, False)
+        self.tour4 = Tours(self, 400-self.taille_tour, 560, self.taille_tour + 150)
         self.toutes_tours2.add(self.tour3)
         self.toutes_tours2.add(self.tour4)
 
@@ -42,16 +42,16 @@ class Game:
     def respawn(self, pseudo):
         if pseudo == 1:
             self.taille_tour = random.randint(50, 350)
-            self.tour1.rect.x = 400
-            self.tour2.rect.x = 400
+            self.tour1.rect.x = 360
+            self.tour2.rect.x = 360
             self.tour1.rect.y = 0
             self.tour2.rect.y = self.taille_tour + 150
             self.tour1.image = pygame.transform.scale(self.tour1.image, (80, self.taille_tour))
             self.tour2.image = pygame.transform.scale(self.tour2.image, (80, 400 - self.taille_tour))
         else:
             self.taille_tour = random.randint(50, 350)
-            self.tour3.rect.x = 400
-            self.tour4.rect.x = 400
+            self.tour3.rect.x = 360
+            self.tour4.rect.x = 360
             self.tour3.rect.y = 0
             self.tour4.rect.y = self.taille_tour + 150
             self.tour3.image = pygame.transform.scale(self.tour3.image, (80, self.taille_tour))

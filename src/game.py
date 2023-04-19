@@ -56,6 +56,7 @@ class Game:
             self.tour4.rect.y = self.taille_tour + 175
             self.tour3.image = pygame.transform.scale(self.tour3.image, (80, self.taille_tour))
             self.tour4.image = pygame.transform.scale(self.tour4.image, (80, 375 - self.taille_tour))
+        self.dragon.point += 1
             
 
     def game_over(self):

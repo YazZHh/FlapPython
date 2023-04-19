@@ -17,11 +17,16 @@ game = Game()
 floor = Floor()
 floor2 = Floor(360)
 
+front = pygame.font.SysFont("monospace" ,80)
+
 while running:
     window.blit(background, (0, 0))
     window.blit(game.dragon.image, game.dragon.rect)
     game.toutes_tours1.draw(window)
     game.toutes_tours2.draw(window)
+
+    point = front.render ( f"{game.dragon.point}", 1 , (0,0,0) )
+    window.blit(point, (150,10))
 
     game.dragon.gravite()
     game.game_over()

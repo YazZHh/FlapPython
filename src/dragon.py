@@ -16,6 +16,9 @@ class Dragon(pygame.sprite.Sprite):
         self.image_up = pygame.transform.rotate(self.image, 30)
         self.image_down = pygame.transform.rotate(self.image, -20)
 
+        self.point = 0
+        
+
     def gravite(self):
         if self.jeu.pret:
             if self.rect.y < 460:
@@ -31,6 +34,7 @@ class Dragon(pygame.sprite.Sprite):
         self.rect.x = 60
         self.rect.y = 200
         self.image = self.image_normal
+        self.point = 0
 
     def rotation(self, game):
         # self.image = pygame.transform.rotate(self.image, self.vitesse_descendante)

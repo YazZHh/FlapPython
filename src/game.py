@@ -59,7 +59,8 @@ class Game:
         # self.dragon.point += 1
             
     def add_point(self):
-        if self.tour1.rect.x == 60 or self.tour4.rect.x == 60:
+        # print(self.tour1.rect.x, self.tour3.rect.x)
+        if self.tour1.rect.x == 81 or (self.tour3.rect.x == 81 or self.tour3.rect.x == 80):
             self.dragon.point += 1
 
     def game_over(self):

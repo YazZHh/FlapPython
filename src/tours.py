@@ -17,6 +17,8 @@ class Tours(pygame.sprite.Sprite):
         self.rect.y = y
         self.rect.x = x
 
+        self.image_normal = pygame.transform.scale(self.image, (80, self.taille))
+
         self.rotation()
 
 
@@ -31,3 +33,4 @@ class Tours(pygame.sprite.Sprite):
     def rotation(self):
         if not self.bas:
             self.image = pygame.transform.rotate(self.image, 180)
+            self.image_normal = pygame.transform.scale(self.image, (80, self.taille))

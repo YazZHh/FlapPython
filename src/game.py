@@ -51,16 +51,16 @@ class Game:
             self.tour2.rect.x = 360
             self.tour1.rect.y = 0
             self.tour2.rect.y = self.taille_tour + 175
-            self.tour1.image = pygame.transform.scale(self.tour1.image, (80, self.taille_tour))
-            self.tour2.image = pygame.transform.scale(self.tour2.image, (80, 375 - self.taille_tour))
+            self.tour1.image = pygame.transform.scale(self.tour1.image_normal, (80, self.taille_tour))
+            self.tour2.image = pygame.transform.scale(self.tour2.image_normal, (80, 375 - self.taille_tour))
         else:
             self.taille_tour = random.randint(50, 325)
             self.tour3.rect.x = 360
             self.tour4.rect.x = 360
             self.tour3.rect.y = 0
             self.tour4.rect.y = self.taille_tour + 175
-            self.tour3.image = pygame.transform.scale(self.tour3.image, (80, self.taille_tour))
-            self.tour4.image = pygame.transform.scale(self.tour4.image, (80, 375 - self.taille_tour))
+            self.tour3.image = pygame.transform.scale(self.tour3.image_normal, (80, self.taille_tour))
+            self.tour4.image = pygame.transform.scale(self.tour4.image_normal, (80, 375 - self.taille_tour))
         self.dragon.point += 1  
             
 

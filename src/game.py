@@ -56,8 +56,11 @@ class Game:
             self.tour4.rect.y = self.taille_tour + 175
             self.tour3.image = pygame.transform.scale(self.tour3.image, (80, self.taille_tour))
             self.tour4.image = pygame.transform.scale(self.tour4.image, (80, 375 - self.taille_tour))
-        self.dragon.point += 1
+        # self.dragon.point += 1
             
+    def add_point(self):
+        if self.tour1.rect.x == 60 or self.tour4.rect.x == 60:
+            self.dragon.point += 1
 
     def game_over(self):
         if self.dragon.rect.y >= 460 or self.dragon.check_collision(self.toutes_tours1) or self.dragon.check_collision(self.toutes_tours2):

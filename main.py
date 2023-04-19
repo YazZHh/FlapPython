@@ -42,7 +42,7 @@ while running:
     if game.pret:
         floor.move()
         floor2.move()
-        # game.dragon.rotation()
+        game.add_point()
     floor.sprite.draw(window)
     floor2.sprite.draw(window)
 

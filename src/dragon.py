@@ -37,7 +37,6 @@ class Dragon(pygame.sprite.Sprite):
         self.point = 0
 
     def rotation(self, game):
-        # self.image = pygame.transform.rotate(self.image, self.vitesse_descendante)
         if self.vitesse_descendante < 0 and game:
             self.image = self.image_up 
         elif self.vitesse_descendante > 0 and game:

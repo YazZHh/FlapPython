@@ -42,5 +42,5 @@ def save_score(new_score):
     print(date)
     print(id)
     print(score_min)
-    curseur.execute("INSERT INTO table_score VALUES (",id,",",new_score,",",date,");")
+    curseur.execute(f"INSERT INTO table_score VALUES ({id},{new_score},'{date}');")
     bdd.commit()

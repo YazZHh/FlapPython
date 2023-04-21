@@ -90,7 +90,7 @@ class Game:
     def game_over(self):
         """mangement of the settings for the game lost"""
         if self.dragon.rect.y >= 463 or self.dragon.check_collision(self.all_towers1) or self.dragon.check_collision(self.all_towers2):
-            # save_score(self.dragon.point)
+            save_score(self.dragon.point)
             self.ready = False
             self.dragon.vitesse_descendante = -8
             self.dragon.image = self.dragon.image_normal

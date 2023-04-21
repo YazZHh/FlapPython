@@ -8,6 +8,9 @@ import sys
 pygame.init()
 
 window = pygame.display.set_mode((360, 600))    # make a window
+pygame.display.set_caption("Flappython")
+# icon = pygame.image.load('assets/joker.png')
+
 # make a background
 background = pygame.image.load("img/background.png")    
 background = pygame.transform.scale(background, (370, 620))

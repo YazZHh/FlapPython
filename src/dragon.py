@@ -8,7 +8,7 @@ class Dragon(pygame.sprite.Sprite):
         
         # management of the image for the dragon
         self.image = pygame.image.load("img/dragon.png")
-        self.image = pygame.transform.scale(self.image, (60, 48))
+        self.image = pygame.transform.scale(self.image, (60, 60))
         self.rect = self.image.get_rect()
         self.rect.x = 60
         self.rect.y = 200

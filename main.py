@@ -17,7 +17,7 @@ game = Game()
 floor = Floor()
 floor2 = Floor(360)
 
-font = pygame.font.SysFont("monospace" ,80)
+font = pygame.font.SysFont("monospace", 80)
 
 while running:
     window.blit(background, (0, 0))
@@ -25,12 +25,12 @@ while running:
     game.toutes_tours1.draw(window)
     game.toutes_tours2.draw(window)
 
-    point = font.render(f"{game.dragon.point}", 1 , (0,0,0))
+    point = font.render(f"{game.dragon.point}", 1, (0,0,0))
     text_width, text_height = font.size(f"{game.dragon.point}")
     window.blit(point, (180-(text_width//2),10))
 
     game.dragon.gravite()
-    # game.game_over()
+    game.game_over()
 
     for tour in game.toutes_tours1:
         tour.deplacement(1)
@@ -43,7 +43,7 @@ while running:
     if game.pret:
         floor.move()
         floor2.move()
-        # game.dragon.rotation()
+        game.add_point()
     floor.sprite.draw(window)
     floor2.sprite.draw(window)
 

@@ -2,6 +2,7 @@ import pygame
 import random
 from src.dragon import Dragon
 from src.tours import towers
+from src.score import *
 
 class Game:
 
@@ -77,11 +78,12 @@ class Game:
     def game_over(self):
         """mangement of the settings for the game lost"""
         if self.dragon.rect.y >= 460 or self.dragon.check_collision(self.all_towers1) or self.dragon.check_collision(self.all_towers2):
+            save_score(self.dragon.point)
             self.ready = False
             self.dragon.vitesse_descendante = -8
-            self.dragon.reset()
             self.dragon.image = self.dragon.image_normal
             self.tower1.rect.x = 370
             self.tower2.rect.x = 370
             self.tower3.rect.x = 370
             self.tower4.rect.x = 370
+            self.dragon.reset()

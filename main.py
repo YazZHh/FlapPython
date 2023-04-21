@@ -1,6 +1,7 @@
 from src.dragon import Dragon
 from src.game import Game
 from src.floor import Floor
+from src.score import *
 import pygame
 import sys
 

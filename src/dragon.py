@@ -26,7 +26,7 @@ class Dragon(pygame.sprite.Sprite):
         if self.jeu.ready:
             if self.rect.y < 460:
                 self.rect.y += self.vitesse_descendante
-                self.vitesse_descendante += 0.45
+                self.vitesse_descendante += 0.5
             if self.rect.y > 280:
                 self.image = self.image_down
 
@@ -39,7 +39,6 @@ class Dragon(pygame.sprite.Sprite):
         self.rect.x = 60
         self.rect.y = 200
         self.image = self.image_normal
-        self.point = 0
 
     def rotation(self, game):
         """management of the image compared with the statue"""

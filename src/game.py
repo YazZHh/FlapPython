@@ -34,8 +34,19 @@ class Game:
         """Do appears the towers"""
         self.tower1.rect.x = 330
         self.tower2.rect.x = 330
+        self.tower1.rect.y = 0
+        self.tower2.rect.y = self.size_tower + 175
+        self.tower1.image = pygame.transform.scale(self.tower1.image_normal, (80, self.size_tower))
+        self.tower2.image = pygame.transform.scale(self.tower2.image_normal, (80, 375 - self.size_tower))
+
+        self.size_tower = random.randint(50, 325)
         self.tower3.rect.x = 560
         self.tower4.rect.x = 560
+        self.tower3.rect.y = 0
+        self.tower4.rect.y = self.size_tower + 175
+        self.tower3.image = pygame.transform.scale(self.tower3.image_normal, (80, self.size_tower))
+        self.tower4.image = pygame.transform.scale(self.tower4.image_normal, (80, 375 - self.size_tower))
+        
 
 
     def start(self):
@@ -43,6 +54,7 @@ class Game:
         if not self.ready:
             self.creation_tower()
             self.ready = True
+            self.dragon.point = 0
         else:
             self.jump()
 
@@ -77,8 +89,8 @@ class Game:
 
     def game_over(self):
         """mangement of the settings for the game lost"""
-        if self.dragon.rect.y >= 460 or self.dragon.check_collision(self.all_towers1) or self.dragon.check_collision(self.all_towers2):
-            save_score(self.dragon.point)
+        if self.dragon.rect.y >= 463 or self.dragon.check_collision(self.all_towers1) or self.dragon.check_collision(self.all_towers2):
+            # save_score(self.dragon.point)
             self.ready = False
             self.dragon.vitesse_descendante = -8
             self.dragon.image = self.dragon.image_normal

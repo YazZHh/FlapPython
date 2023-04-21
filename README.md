@@ -15,3 +15,6 @@ and then install pygame :
 ```
 pip3 install pygame
 ```
+
+## How to play the game ?
+Just clone this repo with `git clone https://github.com/YazZHh/FlapPython/` or download ZIP, and start main.py.

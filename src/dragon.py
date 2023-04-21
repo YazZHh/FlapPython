@@ -22,6 +22,7 @@ class Dragon(pygame.sprite.Sprite):
         
 
     def gravite(self):
+        """move the dragon on the axe y"""
         if self.jeu.ready:
             if self.rect.y < 460:
                 self.rect.y += self.vitesse_descendante
@@ -30,15 +31,18 @@ class Dragon(pygame.sprite.Sprite):
                 self.image = self.image_down
 
     def check_collision(self, group):
+        """check if its a collision"""
         return pygame.sprite.spritecollide(self, group, False, pygame.sprite.collide_mask)
     
     def reset(self):
+        """reset the setting of the dragon"""
         self.rect.x = 60
         self.rect.y = 200
         self.image = self.image_normal
         self.point = 0
 
     def rotation(self, game):
+        """management of the image compared with the statue"""
         if self.vitesse_descendante < 0 and game:
             self.image = self.image_up 
         elif self.vitesse_descendante > 0 and game:

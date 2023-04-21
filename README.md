@@ -7,6 +7,11 @@ This project, made by 12th grade high school students from Lycée Stella is inte
 - [Pygame](https://github.com/pygame/pygame) library
 
 ### Install all requirements :
+Make sure you have Python 3.7 or newer, 
+```
+python --version
+```
+and then install pygame :
 ```
 pip3 install pygame
 ```

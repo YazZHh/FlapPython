@@ -19,7 +19,9 @@ game = Game()
 floor = Floor()
 floor2 = Floor(360)
 
-font = pygame.font.SysFont("monospace", 80) # font for the score
+# font for the score
+font = pygame.font.SysFont("monospace", 80)
+font2 = pygame.font.SysFont("", 30) 
 
 while running:
     # display the images
@@ -33,8 +35,13 @@ while running:
     text_width, text_height = font.size(f"{game.dragon.point}")
     window.blit(point, (180-(text_width//2),10))
 
+    high_point = font2.render(f"High score: {score_min_max(2)}", 1, (0,255,0))
+    text_width, text_height = font2.size(f"{score_min_max(2)}")
+ 
     game.dragon.gravite()
     game.game_over()
+    if game.loose == True:
+        window.blit(high_point, (65,380))
 
     for tower in game.all_towers1:
         tower.deplacement(1)

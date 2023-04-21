@@ -8,7 +8,7 @@ class Dragon(pygame.sprite.Sprite):
         
         # management of the image for the dragon
         self.image = pygame.image.load("img/dragon.png")
-        self.image = pygame.transform.scale(self.image, (60, 60))
+        self.image = pygame.transform.scale(self.image, (60, 48))
         self.rect = self.image.get_rect()
         self.rect.x = 60
         self.rect.y = 200
@@ -24,7 +24,7 @@ class Dragon(pygame.sprite.Sprite):
     def gravite(self):
         """move the dragon on the axe y"""
         if self.jeu.ready:
-            if self.rect.y < 460:
+            if self.rect.y < 470:
                 self.rect.y += self.vitesse_descendante
                 self.vitesse_descendante += 0.5
             if self.rect.y > 280:

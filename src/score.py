@@ -7,7 +7,7 @@ bdd = sqlite3.connect('src/SCORE.db')
 curseur = bdd.cursor()
 
 def max_id():
-    max_id = curseur.execute(f"SELECT MAX(id) FROM table_score;")
+    max_id = curseur.execute(f"SELECT MAX(nb_try) FROM table_score;")
     id = []
     for enregistrement in max_id:
         id.append(enregistrement)
@@ -35,12 +35,10 @@ def score_min_max(min_max):
 
 def save_score(new_score):
     score_min = score_min_max(1)
-    if new_score >= score_min and count() >= 10:
-        curseur.execute(f"DELETE FROM table_score WHERE score = {score_min};")
-    id = max_id() + 1
-    date = datetime.datetime.today().replace(microsecond = 0)
-    print(date)
-    print(id)
-    print(score_min)
-    curseur.execute(f"INSERT INTO table_score VALUES ({id},{new_score},'{date}');")
-    bdd.commit()
+    if new_score >= score_min:
+            if count() >= 10:
+                curseur.execute(f"DELETE FROM table_score WHERE score = {score_min};")
+            id = max_id() + 1
+            date = datetime.datetime.today().replace(microsecond = 0)
+            curseur.execute(f"INSERT INTO table_score VALUES ({id},{new_score},'{date}');")
+            bdd.commit()

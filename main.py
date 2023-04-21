@@ -8,8 +8,10 @@ import sys
 pygame.init()
 
 window = pygame.display.set_mode((360, 600))    # make a window
-pygame.display.set_caption("Flappython")
-# icon = pygame.image.load('assets/joker.png')
+icon = pygame.image.load('img/python.png')    
+
+pygame.display.set_caption("Flappython")    # put a title
+pygame.display.set_icon(icon)               # display a icon
 
 # make a background
 background = pygame.image.load("img/background.png")    
@@ -23,8 +25,8 @@ floor = Floor()
 floor2 = Floor(360)
 
 # font for the score
-font = pygame.font.SysFont("monospace", 80)
-font2 = pygame.font.SysFont("", 30) 
+font = pygame.font.SysFont("DOGMA.oft", 80)
+font2 = pygame.font.SysFont("DOGMA.oft", 30) 
 
 while running:
     # display the images

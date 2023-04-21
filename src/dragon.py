@@ -6,21 +6,23 @@ class Dragon(pygame.sprite.Sprite):
         self.jeu = Jeu
         self.vitesse_descendante = -8
         
+        # management of the image for the dragon
         self.image = pygame.image.load("img/dragon.png")
         self.image = pygame.transform.scale(self.image, (60, 60))
         self.rect = self.image.get_rect()
         self.rect.x = 60
         self.rect.y = 200
 
+        # image for the different position
         self.image_normal = self.image
         self.image_up = pygame.transform.rotate(self.image, 30)
         self.image_down = pygame.transform.rotate(self.image, -20)
 
-        self.point = 0
+        self.point = 0 # score of the player
         
 
     def gravite(self):
-        if self.jeu.pret:
+        if self.jeu.ready:
             if self.rect.y < 460:
                 self.rect.y += self.vitesse_descendante
                 self.vitesse_descendante += 0.45

@@ -6,25 +6,28 @@ import sys
 
 pygame.init()
 
-window = pygame.display.set_mode((360, 600))
-background = pygame.image.load("img/background.png")
+window = pygame.display.set_mode((360, 600))    # make a window
+# make a background
+background = pygame.image.load("img/background.png")    
 background = pygame.transform.scale(background, (370, 620))
 
 clock = pygame.time.Clock()
-running = True
+running = True  # the window is open
 
 game = Game()
 floor = Floor()
 floor2 = Floor(360)
 
-font = pygame.font.SysFont("monospace", 80)
+font = pygame.font.SysFont("monospace", 80) # font for the score
 
 while running:
+    # display the images
     window.blit(background, (0, 0))
     window.blit(game.dragon.image, game.dragon.rect)
-    game.toutes_tours1.draw(window)
-    game.toutes_tours2.draw(window)
+    game.all_towers1.draw(window)
+    game.all_towers2.draw(window)
 
+    # display the score
     point = font.render(f"{game.dragon.point}", 1, (0,0,0))
     text_width, text_height = font.size(f"{game.dragon.point}")
     window.blit(point, (180-(text_width//2),10))
@@ -32,15 +35,15 @@ while running:
     game.dragon.gravite()
     game.game_over()
 
-    for tour in game.toutes_tours1:
-        tour.deplacement(1)
+    for tower in game.all_towers1:
+        tower.deplacement(1)
 
-    for tour in game.toutes_tours2:
-        tour.deplacement(2)
+    for tower in game.all_towers2:
+        tower.deplacement(2)
 
-    game.dragon.rotation(game.pret)
+    game.dragon.rotation(game.ready)
 
-    if game.pret:
+    if game.ready:
         floor.move()
         floor2.move()
         game.add_point()
@@ -48,12 +51,12 @@ while running:
     floor2.sprite.draw(window)
 
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:
+        if event.type == pygame.QUIT: # to quit the window
             running = False
             pygame.quit()
             sys.exit()
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
+        elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE: # if space pressed
             game.start()
 
-    clock.tick(60)
-    pygame.display.flip()
+    clock.tick(60)  # put 60fps max
+    pygame.display.flip() # update the window

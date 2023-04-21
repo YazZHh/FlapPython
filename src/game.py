@@ -1,78 +1,87 @@
 import pygame
 import random
 from src.dragon import Dragon
-from src.tours import Tours
+from src.tours import towers
 
 class Game:
 
     def __init__(self):
         self.dragon = Dragon(self)
 
-        self.toutes_tours1 = pygame.sprite.Group()
-        self.toutes_tours2 = pygame.sprite.Group()
+        # make a tuple of tower
+        self.all_towers1 = pygame.sprite.Group()
+        self.all_towers2 = pygame.sprite.Group()
 
-        self.taille_tour = random.randint(50, 325)
-        self.tour1 = Tours(self, self.taille_tour, 370, 0, False)
-        self.tour2 = Tours(self, 375-self.taille_tour, 370, self.taille_tour + 175)
-        self.toutes_tours1.add(self.tour1)
-        self.toutes_tours1.add(self.tour2)
-        
-        self.taille_tour = random.randint(50, 325)
-        self.tour3 = Tours(self, self.taille_tour, 370, 0, False)
-        self.tour4 = Tours(self, 375-self.taille_tour, 370, self.taille_tour + 175)
-        self.toutes_tours2.add(self.tour3)
-        self.toutes_tours2.add(self.tour4)
+        # settings for the first group
+        self.size_tower = random.randint(50, 325)
+        self.tower1 = towers(self, self.size_tower, 370, 0, False)
+        self.tower2 = towers(self, 375-self.size_tower, 370, self.size_tower + 175)
+        self.all_towers1.add(self.tower1)
+        self.all_towers1.add(self.tower2)
 
-        self.pret = False
+        # settings for the second group
+        self.size_tower = random.randint(50, 325)
+        self.tower3 = towers(self, self.size_tower, 370, 0, False)
+        self.tower4 = towers(self, 375-self.size_tower, 370, self.size_tower + 175)
+        self.all_towers2.add(self.tower3)
+        self.all_towers2.add(self.tower4)
 
-    def creation_tour(self):
-        self.tour1.rect.x = 330
-        self.tour2.rect.x = 330
-        self.tour3.rect.x = 560
-        self.tour4.rect.x = 560
+        # The game is playing
+        self.ready = False
+
+    def creation_tower(self):
+        """Do appears the towers"""
+        self.tower1.rect.x = 330
+        self.tower2.rect.x = 330
+        self.tower3.rect.x = 560
+        self.tower4.rect.x = 560
 
 
     def start(self):
-        if not self.pret:
-            self.creation_tour()
-            self.pret = True
+        """settings to start the game and management the jump"""
+        if not self.ready:
+            self.creation_tower()
+            self.ready = True
         else:
-            self.saut()
+            self.jump()
 
-    def saut(self):
+    def jump(self):
         if self.dragon.rect.y > 10:
             self.dragon.vitesse_descendante = -8
             self.dragon.image = self.dragon.image_up
 
     def respawn(self, pseudo):
+        """move and change the size of the towers"""
         if pseudo == 1:
-            self.taille_tour = random.randint(50, 325)
-            self.tour1.rect.x = 360
-            self.tour2.rect.x = 360
-            self.tour1.rect.y = 0
-            self.tour2.rect.y = self.taille_tour + 175
-            self.tour1.image = pygame.transform.scale(self.tour1.image_normal, (80, self.taille_tour))
-            self.tour2.image = pygame.transform.scale(self.tour2.image_normal, (80, 375 - self.taille_tour))
+            self.size_tower = random.randint(50, 325)
+            self.tower1.rect.x = 360
+            self.tower2.rect.x = 360
+            self.tower1.rect.y = 0
+            self.tower2.rect.y = self.size_tower + 175
+            self.tower1.image = pygame.transform.scale(self.tower1.image_normal, (80, self.size_tower))
+            self.tower2.image = pygame.transform.scale(self.tower2.image_normal, (80, 375 - self.size_tower))
         else:
-            self.taille_tour = random.randint(50, 325)
-            self.tour3.rect.x = 360
-            self.tour4.rect.x = 360
-            self.tour3.rect.y = 0
-            self.tour4.rect.y = self.taille_tour + 175
-            self.tour3.image = pygame.transform.scale(self.tour3.image_normal, (80, self.taille_tour))
-            self.tour4.image = pygame.transform.scale(self.tour4.image_normal, (80, 375 - self.taille_tour))
+            self.size_tower = random.randint(50, 325)
+            self.tower3.rect.x = 360
+            self.tower4.rect.x = 360
+            self.tower3.rect.y = 0
+            self.tower4.rect.y = self.size_tower + 175
+            self.tower3.image = pygame.transform.scale(self.tower3.image_normal, (80, self.size_tower))
+            self.tower4.image = pygame.transform.scale(self.tower4.image_normal, (80, 375 - self.size_tower))
             
     def add_point(self):
-        if self.tour1.rect.x == 81 or (self.tour3.rect.x == 81 or self.tour3.rect.x == 80):
+        """"management of the points"""
+        if self.tower1.rect.x == 81 or (self.tower3.rect.x == 81 or self.tower3.rect.x == 80):
             self.dragon.point += 1
 
     def game_over(self):
-        if self.dragon.rect.y >= 460 or self.dragon.check_collision(self.toutes_tours1) or self.dragon.check_collision(self.toutes_tours2):
-            self.pret = False
+        """mangement of the settings for the game lost"""
+        if self.dragon.rect.y >= 460 or self.dragon.check_collision(self.all_towers1) or self.dragon.check_collision(self.all_towers2):
+            self.ready = False
             self.dragon.vitesse_descendante = -8
             self.dragon.reset()
             self.dragon.image = self.dragon.image_normal
-            self.tour1.rect.x = 370
-            self.tour2.rect.x = 370
-            self.tour3.rect.x = 370
-            self.tour4.rect.x = 370
+            self.tower1.rect.x = 370
+            self.tower2.rect.x = 370
+            self.tower3.rect.x = 370
+            self.tower4.rect.x = 370

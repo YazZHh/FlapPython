@@ -33,11 +33,14 @@ def score_min_max(min_max):
     return score[0][0]
 
 
-def delete(new_score):
-    curseur.execute(f"DELETE table_score WHERE score >= new_score and ;")
-
-
-def save_score(point):
-    if count() < 10 :
-        curseur.execute(f"INSERT INTO table_score VALUES ({max_id()}+1, {point}, {datetime.datetime.today().replace(microsecond = 0)});")
-        bdd.commit()
+def save_score(new_score):
+    score_min = score_min_max(1)
+    if new_score >= score_min and count() >= 10:
+        curseur.execute(f"DELETE FROM table_score WHERE score = {score_min};")
+    id = max_id() + 1
+    date = datetime.datetime.today().replace(microsecond = 0)
+    print(date)
+    print(id)
+    print(score_min)
+    curseur.execute("INSERT INTO table_score VALUES (",id,",",new_score,",",date,");")
+    bdd.commit()

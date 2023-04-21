@@ -29,6 +29,7 @@ class Game:
 
         # The game is playing
         self.ready = False
+        self.loose = False
 
     def creation_tower(self):
         """Do appears the towers"""
@@ -51,6 +52,7 @@ class Game:
 
     def start(self):
         """settings to start the game and management the jump"""
+        self.loose = False
         if not self.ready:
             self.creation_tower()
             self.ready = True
@@ -89,8 +91,9 @@ class Game:
 
     def game_over(self):
         """mangement of the settings for the game lost"""
-        if self.dragon.rect.y >= 463 or self.dragon.check_collision(self.all_towers1) or self.dragon.check_collision(self.all_towers2):
-            save_score(self.dragon.point)
+
+        if self.dragon.rect.y >= 470 or self.dragon.check_collision(self.all_towers1) or self.dragon.check_collision(self.all_towers2):
+            # save_score(self.dragon.point)
             self.ready = False
             self.dragon.vitesse_descendante = -8
             self.dragon.image = self.dragon.image_normal
@@ -99,3 +102,4 @@ class Game:
             self.tower3.rect.x = 370
             self.tower4.rect.x = 370
             self.dragon.reset()
+            self.loose = True

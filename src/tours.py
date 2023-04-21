@@ -11,6 +11,7 @@ class towers(pygame.sprite.Sprite):
         self.vitesse = 2.65
         self.bas = boolen
 
+        # management of the image for the towers
         self.image = pygame.image.load('img/towers.png')
         self.image = pygame.transform.scale(self.image, (80, self.size))
         self.rect = self.image.get_rect()
@@ -23,6 +24,7 @@ class towers(pygame.sprite.Sprite):
 
 
     def deplacement(self, pseudo):
+        """move the towers on the axe x"""
         if self.jeu.ready:
             if self.rect.x >= -85:
                 self.rect.x -= self.vitesse
@@ -31,6 +33,7 @@ class towers(pygame.sprite.Sprite):
 
 
     def rotation(self):
+        """do a rotation of 180°"""
         if not self.bas:
             self.image = pygame.transform.rotate(self.image, 180)
             self.image_normal = pygame.transform.scale(self.image, (80, self.size))

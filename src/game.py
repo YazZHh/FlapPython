@@ -1,7 +1,7 @@
 import pygame
 import random
 from src.dragon import Dragon
-from src.tours import towers
+from src.tower import towers
 from src.score import *
 
 class Game:
@@ -31,7 +31,7 @@ class Game:
         self.ready = False
         self.loose = False
 
-    def creation_tower(self):
+    def make_tower(self):
         """Do appears the towers"""
         self.tower1.rect.x = 330
         self.tower2.rect.x = 330
@@ -54,7 +54,7 @@ class Game:
         """settings to start the game and management the jump"""
         self.loose = False
         if not self.ready:
-            self.creation_tower()
+            self.make_tower()
             self.ready = True
             self.dragon.point = 0
         else:

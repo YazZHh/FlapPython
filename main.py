@@ -25,8 +25,8 @@ floor = Floor()
 floor2 = Floor(360)
 
 # fonts for the score
-font = pygame.font.SysFont("DOGMA.oft", 80)
-font2 = pygame.font.SysFont("DOGMA.oft", 50) 
+font = pygame.font.SysFont("Hang the DJ", 70)
+font2 = pygame.font.SysFont("Hang the DJ", 30) 
 
 while running:
     # display the images
@@ -46,7 +46,7 @@ while running:
     game.dragon.gravite()
     game.game_over()
     if game.loose == True:
-        window.blit(high_point, (0,460))
+        window.blit(high_point, (0,490))
 
     for tower in game.all_towers1:
         tower.deplacement(1)

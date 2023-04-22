@@ -7,7 +7,7 @@ class Dragon(pygame.sprite.Sprite):
         self.vitesse_descendante = -8
         
         # management of the image for the dragon
-        self.image = pygame.image.load("img/dragon.png")
+        self.image = pygame.image.load("img/dragon2.png")
         self.image = pygame.transform.scale(self.image, (60, 60))
         self.rect = self.image.get_rect()
         self.rect.x = 60

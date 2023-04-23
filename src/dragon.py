@@ -7,18 +7,25 @@ class Dragon(pygame.sprite.Sprite):
         self.speed = -8
         
         # management of the image for the dragon
-        self.curent_image = 1
+        # self.curent_image = 1
         self.image = pygame.image.load("img/dragon.png")
         self.image = pygame.transform.scale(self.image, (60, 60))
         self.rect = self.image.get_rect()
         self.rect.x = 60
         self.rect.y = 200
 
-        self.all_image = {
-            1 : "img/dragon.png",
-            2 : "img/dragon2.png",
-            3 : "img/dragon3.png"
-        }
+        # self.image1 = self.image
+        # self.image2 = pygame.image.load("img/dragon2.png")
+        # self.image2 = pygame.transform.scale(self.image2, (60, 60))
+        # self.image3 = pygame.image.load("img/dragon3.png")
+        # self.image3 = pygame.transform.scale(self.image3, (60, 60))
+
+
+        # self.all_image = {
+        #     1 : self.image1,
+        #     2 : self.image2,
+        #     3 : self.image3
+        # }
         
 
         # image for the different position
@@ -29,13 +36,13 @@ class Dragon(pygame.sprite.Sprite):
         self.point = 0 # score of the player
 
     
-    def change_image(self):
-        if not self.game.ready:
-            self.curent_image += 1
-            if self.curent_image == 4:
-                self.curent_image = 1
-            self.image = pygame.image.load(self.all_image[self.curent_image])
-            self.image = pygame.transform.scale(self.image, (60, 60))
+    # def change_image(self):
+    #     if not self.game.ready:
+    #         self.curent_image += 1
+    #         if self.curent_image == 4:
+    #             self.curent_image = 1
+    #         self.image = self.all_image[self.curent_image]
+    #         self.image = pygame.transform.scale(self.image, (60, 60))
 
         
     def gravite(self):

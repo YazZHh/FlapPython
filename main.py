@@ -28,6 +28,7 @@ floor2 = Floor(360)
 font = pygame.font.SysFont("Hang the DJ", 70)
 font2 = pygame.font.SysFont("Hang the DJ", 30) 
 
+
 while running:
     # display the images
     window.blit(background, (0, 0))
@@ -60,6 +61,7 @@ while running:
         floor.move()
         floor2.move()
         game.add_point()
+    
     floor.sprite.draw(window)
     floor2.sprite.draw(window)
 
@@ -71,8 +73,8 @@ while running:
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE: # if space pressed
                 game.start()
-            elif event.key == pygame.K_x:
-                game.dragon.change_image()
+            # elif event.key == pygame.K_x:
+            #     game.dragon.change_image()
 
     clock.tick(60)  # put 60fps max
     pygame.display.flip() # update the window

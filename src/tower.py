@@ -3,9 +3,9 @@ import random
 
 class towers(pygame.sprite.Sprite):
 
-    def __init__(self, Jeu, size, x, y, boolen=True):
+    def __init__(self, Game, size, x, y, boolen=True):
         super().__init__()
-        self.jeu = Jeu
+        self.game = Game
 
         self.size = size
         self.vitesse = 2.65
@@ -25,11 +25,11 @@ class towers(pygame.sprite.Sprite):
 
     def deplacement(self, pseudo):
         """move the towers on the axe x"""
-        if self.jeu.ready:
+        if self.game.ready:
             if self.rect.x >= -85:
                 self.rect.x -= self.vitesse
             elif self.rect.x <= -85:
-                self.jeu.respawn(pseudo)
+                self.game.respawn(pseudo)
 
 
     def rotation(self):

@@ -29,6 +29,8 @@ class Game:
 
         # The game is playing
         self.ready = False
+
+        # firts loose
         self.loose = False
 
     def make_tower(self):
@@ -62,7 +64,7 @@ class Game:
 
     def jump(self):
         if self.dragon.rect.y > 10:
-            self.dragon.vitesse_descendante = -8
+            self.dragon.speed = -8
             self.dragon.image = self.dragon.image_up
 
     def respawn(self, pseudo):
@@ -95,7 +97,7 @@ class Game:
         if self.dragon.rect.y >= 463 or self.dragon.check_collision(self.all_towers1) or self.dragon.check_collision(self.all_towers2):
             save_score(self.dragon.point)
             self.ready = False
-            self.dragon.vitesse_descendante = -8
+            self.dragon.speed = -8
             self.dragon.image = self.dragon.image_normal
             self.tower1.rect.x = 370
             self.tower2.rect.x = 370

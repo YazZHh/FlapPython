@@ -68,8 +68,11 @@ while running:
             running = False
             pygame.quit()
             sys.exit()
-        elif event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE: # if space pressed
-            game.start()
+        elif event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE: # if space pressed
+                game.start()
+            elif event.key == pygame.K_x:
+                game.dragon.change_image()
 
     clock.tick(60)  # put 60fps max
     pygame.display.flip() # update the window

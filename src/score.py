@@ -2,7 +2,7 @@ import sqlite3
 import datetime
 
 
-# Connexion à la base de données Livres
+# connect the base of data
 bdd = sqlite3.connect('src/SCORE.db')
 curseur = bdd.cursor()
 

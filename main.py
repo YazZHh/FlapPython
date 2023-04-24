@@ -79,9 +79,11 @@ while running:
             sys.exit()
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE: # if space pressed
-                game.start()
+                game.jump()
             elif event.key == pygame.K_RIGHT:
                 game.dragon.change_image()
+            elif event.key == pygame.K_RETURN:
+                game.start()
 
     clock.tick(60)  # put 60fps max
     pygame.display.flip() # update the window

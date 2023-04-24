@@ -60,8 +60,6 @@ class Game:
             self.make_tower()
             self.ready = True
             self.dragon.point = 0
-        else:
-            self.jump()
 
     def jump(self):
         if self.dragon.rect.y > 10:

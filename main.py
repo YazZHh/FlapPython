@@ -26,15 +26,21 @@ floor2 = Floor(360)
 
 # fonts for the score
 font = pygame.font.Font("font/HANGTHEDJ.ttf", 70)
-font2 = pygame.font.Font("font/HANGTHEDJ.ttf", 30) 
+font2 = pygame.font.Font("font/HANGTHEDJ.ttf", 30)
+
 
 
 while running:
+    image = game.dragon.image
+
     # display the images
     window.blit(background, (0, 0))
-    window.blit(game.dragon.image, game.dragon.rect)
     game.all_towers1.draw(window)
     game.all_towers2.draw(window)
+
+
+    window.blit(image, game.dragon.rect)
+
 
     # display the score
     point = font.render(f"{game.dragon.point}", 1, (0, 0, 0))
@@ -74,8 +80,8 @@ while running:
         elif event.type == pygame.KEYDOWN:
             if event.key == pygame.K_SPACE: # if space pressed
                 game.start()
-            # elif event.key == pygame.K_x:
-            #     game.dragon.change_image()
+            elif event.key == pygame.K_RIGHT:
+                game.dragon.change_image()
 
     clock.tick(60)  # put 60fps max
     pygame.display.flip() # update the window

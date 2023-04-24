@@ -3,6 +3,7 @@ import random
 from src.dragon import Dragon
 from src.tower import towers
 from src.score import *
+import time
 
 class Game:
 
@@ -103,8 +104,17 @@ class Game:
             self.tower2.rect.x = 370
             self.tower3.rect.x = 370
             self.tower4.rect.x = 370
+            self.blink_screen(window)
             self.dragon.reset()
             self.loose = True
-            # whitescreen = pygame.surface()
-            # window.blit((255, 255, 255), (0, 0))
-            window.fill((255, 255, 255))
+
+    def blink_screen(self, window):
+
+        blank = pygame.Surface((360, 600))
+        alpha_value = 255
+        while alpha_value >= 0:
+            blank.set_alpha(alpha_value)
+            blank.fill((255, 255, 255))
+            window.blit(blank, (0, 0))
+            alpha_value -= 10
+            pygame.display.flip()

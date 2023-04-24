@@ -25,8 +25,8 @@ floor = Floor()
 floor2 = Floor(360)
 
 # fonts for the score
-font = pygame.font.SysFont("Hang the DJ", 70)
-font2 = pygame.font.SysFont("Hang the DJ", 30) 
+font = pygame.font.Font("font/HANGTHEDJ.ttf", 70)
+font2 = pygame.font.Font("font/HANGTHEDJ.ttf", 30) 
 
 
 while running:
@@ -37,17 +37,18 @@ while running:
     game.all_towers2.draw(window)
 
     # display the score
-    point = font.render(f"{game.dragon.point}", 1, (0,0,0))
+    point = font.render(f"{game.dragon.point}", 1, (0, 0, 0))
     text_width, text_height = font.size(f"{game.dragon.point}")
-    window.blit(point, (180-(text_width//2),10))
+    window.blit(point, (180-(text_width//2), 10))
 
-    high_point = font2.render(f"High score: {score_min_max(2)}", 1, (0,0,0))
+    high_point = font2.render(f"High score: {score_min_max(2)}", 1, (0, 0, 0))
     text_width, text_height = font2.size(f"{score_min_max(2)}")
  
     game.dragon.gravite()
-    game.game_over()
+    game.game_over(window)
+
     if game.loose == True:
-        window.blit(high_point, (0,490))
+        window.blit(high_point, (0, 490))
 
     for tower in game.all_towers1:
         tower.deplacement(1)

@@ -91,7 +91,7 @@ class Game:
         if self.tower1.rect.x == 81 or (self.tower3.rect.x == 81 or self.tower3.rect.x == 80):
             self.dragon.point += 1
 
-    def game_over(self):
+    def game_over(self, window):
         """mangement of the settings for the game lost"""
 
         if self.dragon.rect.y >= 463 or self.dragon.check_collision(self.all_towers1) or self.dragon.check_collision(self.all_towers2):
@@ -105,3 +105,6 @@ class Game:
             self.tower4.rect.x = 370
             self.dragon.reset()
             self.loose = True
+            # whitescreen = pygame.surface()
+            # window.blit((255, 255, 255), (0, 0))
+            window.fill((255, 255, 255))

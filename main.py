@@ -29,18 +29,12 @@ font = pygame.font.Font("font/HANGTHEDJ.ttf", 70)
 font2 = pygame.font.Font("font/HANGTHEDJ.ttf", 30)
 
 
-
 while running:
-    image = game.dragon.image
-
     # display the images
     window.blit(background, (0, 0))
+    window.blit(game.dragon.image, game.dragon.rect)
     game.all_towers1.draw(window)
     game.all_towers2.draw(window)
-
-
-    window.blit(image, game.dragon.rect)
-
 
     # display the score
     point = font.render(f"{game.dragon.point}", 1, (0, 0, 0))

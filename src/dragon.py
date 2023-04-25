@@ -48,7 +48,7 @@ class Dragon(pygame.sprite.Sprite):
         
     def gravite(self):
         """move the dragon on the axe y"""
-        if self.game.ready:
+        if self.game.ready and not self.game.stop:
             if self.rect.y < 470:
                 self.rect.y += self.speed
                 self.speed += 0.5
@@ -67,9 +67,10 @@ class Dragon(pygame.sprite.Sprite):
 
     def rotation(self, game):
         """management of the image compared with the statue"""
-        if self.speed < 0 and game:
-            self.image = self.image_up 
-        elif self.speed > 0 and game:
-            self.image = self.image_down
-        else:
-            self.image = self.image_normal
+        if not self.game.stop:
+            if self.speed < 0 and game:
+                self.image = self.image_up 
+            elif self.speed > 0 and game:
+                self.image = self.image_down
+            else:
+                self.image = self.image_normal

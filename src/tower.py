@@ -25,7 +25,7 @@ class towers(pygame.sprite.Sprite):
 
     def deplacement(self, pseudo):
         """move the towers on the axe x"""
-        if self.game.ready:
+        if self.game.ready and not self.game.stop:
             if self.rect.x >= -85:
                 self.rect.x -= self.vitesse
             elif self.rect.x <= -85:

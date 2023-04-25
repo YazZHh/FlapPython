@@ -58,7 +58,7 @@ while running:
 
     game.dragon.rotation(game.ready)
 
-    if game.ready:
+    if game.ready and not game.stop:
         floor.move()
         floor2.move()
         game.add_point()
@@ -78,6 +78,13 @@ while running:
                 game.dragon.change_image()
             elif event.key == pygame.K_RETURN:
                 game.start()
+            elif event.key == pygame.K_p:
+                if game.ready:
+                    if game.stop:
+                        game.stop = False
+                    else:
+                        game.stop = True
+                        # window.blit(, )
 
     clock.tick(60)  # put 60fps max
     pygame.display.flip() # update the window

@@ -30,6 +30,7 @@ class Game:
 
         # The game is playing
         self.ready = False
+        self.stop = False
 
         # firts loose
         self.loose = False
@@ -51,7 +52,6 @@ class Game:
         self.tower3.image = pygame.transform.scale(self.tower3.image_normal, (80, self.size_tower))
         self.tower4.image = pygame.transform.scale(self.tower4.image_normal, (80, 375 - self.size_tower))
         
-
 
     def start(self):
         """settings to start the game and management the jump"""

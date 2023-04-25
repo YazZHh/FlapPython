@@ -62,7 +62,7 @@ class Game:
             self.dragon.point = 0
 
     def jump(self):
-        if self.dragon.rect.y > 10:
+        if self.dragon.rect.y > 10 and self.ready:
             self.dragon.speed = -8
             self.dragon.image = self.dragon.image_up
 

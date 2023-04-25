@@ -17,7 +17,11 @@ pygame.display.set_icon(icon)               # display a icon
 background = pygame.image.load("img/background.png")    
 background = pygame.transform.scale(background, (370, 620))
 
-clock = pygame.time.Clock()
+# load a image fot the pause
+pause = pygame.image.load("img/pause.png")
+pause = pygame.transform.scale(pause, (80, 80))
+
+clock = pygame.time.Clock() # management the time
 running = True  # the window is open
 
 game = Game()
@@ -49,6 +53,9 @@ while running:
 
     if game.loose == True:
         window.blit(high_point, (0, 490))
+
+    if game.stop:
+        window.blit(pause, (130, 220))
 
     for tower in game.all_towers1:
         tower.deplacement(1)
@@ -84,7 +91,6 @@ while running:
                         game.stop = False
                     else:
                         game.stop = True
-                        # window.blit(, )
 
     clock.tick(60)  # put 60fps max
     pygame.display.flip() # update the window

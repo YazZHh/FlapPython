@@ -6,41 +6,41 @@ import sys
 
 pygame.init()
 
-window = pygame.display.set_mode((360, 600))    # make a window
+window = pygame.display.set_mode((360, 600))    # Make a window
 icon = pygame.image.load('img/logo.png')    
 
-pygame.display.set_caption("FlapPython")    # set title
-pygame.display.set_icon(icon)               # display icon
+pygame.display.set_caption("FlapPython")    # Set title
+pygame.display.set_icon(icon)               # Display icon
 
-# load background image
+# Load background image
 background = pygame.image.load("img/background.png")    
 background = pygame.transform.scale(background, (370, 620))
 
-# load pause logo
+# Load pause logo
 pause = pygame.image.load("img/pause.png")
 pause = pygame.transform.scale(pause, (80, 80))
 
-clock = pygame.time.Clock() # manage the time
-running = True              # run the game
+clock = pygame.time.Clock() # Manage the time
+running = True              # Run the game
 
 game = Game()
 floor = Floor()
 floor2 = Floor(360)
 
-# load the score font
+# Load the score font
 font = pygame.font.Font("font/HANGTHEDJ.ttf", 70)
 font2 = pygame.font.Font("font/HANGTHEDJ.ttf", 30)
 
 
 while running:
 
-    # display images
+    # Display images
     window.blit(background, (0, 0))
     window.blit(game.dragon.image, game.dragon.rect)
     game.all_towers1.draw(window)
     game.all_towers2.draw(window)
 
-    # display score
+    # Display score
     point = font.render(f"{game.dragon.point}", 1, (0, 0, 0))
     text_width, text_height = font.size(f"{game.dragon.point}")
     window.blit(point, (180-(text_width//2), 10))
@@ -91,25 +91,25 @@ while running:
     floor2.sprite.draw(window)
 
     for event in pygame.event.get():
-        if event.type == pygame.QUIT:       # exit game
+        if event.type == pygame.QUIT:       # Exit game
             running = False
             pygame.quit()
             sys.exit()
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE and (game.go == True or game.ready == True): # when space is pressed
+            if event.key == pygame.K_SPACE and (game.go == True or game.ready == True): # When space is pressed
                 game.ready = True
                 game.go = False
                 game.jump()
             elif event.key == pygame.K_RIGHT:
                 game.dragon.change_image()
-            elif event.key == pygame.K_RETURN and not game.go:
+            elif event.key == pygame.K_RETURN and not game.go:                          # When return is pressed
                 game.start()
-            elif event.key == pygame.K_ESCAPE:
+            elif event.key == pygame.K_ESCAPE:                                          # When escape is pressed
                 if game.ready:
                     if game.stop:
                         game.stop = False
                     else:
                         game.stop = True
 
-    clock.tick(60)          # 60fps limit
-    pygame.display.flip()   # update screen
+    clock.tick(60)          # Limit the game to 60fps
+    pygame.display.flip()   # Update screen

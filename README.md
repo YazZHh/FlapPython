@@ -1,5 +1,5 @@
 # FlapPython
-Flappy Bird written in python with pygame (_still in dev_).
+Flappy Bird written in python with pygame.
 This project, made by 12th grade high school students from Lycée Stella is intended to be submitted to the [Trophée NSI](https://trophees-nsi.fr/) 2023 competition.
 
 ## Requirements :

@@ -23,7 +23,7 @@ class towers(pygame.sprite.Sprite):
         self.rotation()
 
 
-    def deplacement(self, pseudo):
+    def mouvement(self, pseudo):
         """move the towers on the axe x"""
         if self.game.ready and not self.game.stop:
             if self.rect.x >= -85:

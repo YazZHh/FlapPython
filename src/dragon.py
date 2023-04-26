@@ -46,7 +46,7 @@ class Dragon(pygame.sprite.Sprite):
             self.image_down = pygame.transform.rotate(self.image, -20)
 
         
-    def gravite(self):
+    def gravitate(self):
         """move the dragon on the axe y"""
         if self.game.ready and not self.game.stop:
             if self.rect.y < 470:

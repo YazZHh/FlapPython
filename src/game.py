@@ -31,7 +31,6 @@ class Game:
         # The game is playing
         self.ready = False
         self.stop = False
-        self.go = False
 
         # firts loose
         self.loose = False
@@ -58,13 +57,12 @@ class Game:
         """settings to start the game and management the jump"""
         self.loose = False
         if not self.ready:
-            self.go = True
+            self.ready = True
             self.make_tower()
             self.dragon.point = 0
 
     def jump(self):
-        if self.dragon.rect.y > 10 and self.go:
-            self.ready = True
+        if self.dragon.rect.y > 10 and self.ready and not self.stop:
             self.dragon.speed = -8
             self.dragon.image = self.dragon.image_up
 
@@ -107,6 +105,7 @@ class Game:
             self.blink_screen(window)
             self.dragon.reset()
             self.loose = True
+
 
     def blink_screen(self, window):
 

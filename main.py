@@ -46,22 +46,22 @@ while running:
     window.blit(point, (180-(text_width//2), 10))
 
     high_point = font2.render(f"High score: {score_min_max(2)}", 1, (0, 0, 0))
-    text_width, text_height = font2.size(f"{score_min_max(2)}")
+    high_point_width, high_point_height = font2.size(f"High score: {score_min_max(2)}")
  
-    game.dragon.gravite()
+    game.dragon.gravitate()
     game.game_over(window)
 
     if game.loose == True:
-        window.blit(high_point, (0, 490))
+        window.blit(high_point, ((180-high_point_width//2), 490))
 
     if game.stop:
         window.blit(pause, (130, 220))
 
     for tower in game.all_towers1:
-        tower.deplacement(1)
+        tower.mouvement(1)
 
     for tower in game.all_towers2:
-        tower.deplacement(2)
+        tower.mouvement(2)
 
     game.dragon.rotation(game.ready)
 
@@ -85,7 +85,7 @@ while running:
                 game.dragon.change_image()
             elif event.key == pygame.K_RETURN:
                 game.start()
-            elif event.key == pygame.K_p:
+            elif event.key == pygame.K_ESCAPE:
                 if game.ready:
                     if game.stop:
                         game.stop = False

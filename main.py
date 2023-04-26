@@ -1,4 +1,3 @@
-from src.dragon import Dragon
 from src.game import Game
 from src.floor import Floor
 from src.score import *
@@ -8,10 +7,10 @@ import sys
 pygame.init()
 
 window = pygame.display.set_mode((360, 600))    # make a window
-icon = pygame.image.load('img/python.png')    
+icon = pygame.image.load('img/logo.png')    
 
-pygame.display.set_caption("Flappython")    # put a title
-pygame.display.set_icon(icon)               # display a icon
+pygame.display.set_caption("FlapPython")    # set title
+pygame.display.set_icon(icon)               # display icon
 
 # load background image
 background = pygame.image.load("img/background.png")    

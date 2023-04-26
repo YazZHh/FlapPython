@@ -13,46 +13,47 @@ icon = pygame.image.load('img/python.png')
 pygame.display.set_caption("Flappython")    # put a title
 pygame.display.set_icon(icon)               # display a icon
 
-# make a background
+# load background image
 background = pygame.image.load("img/background.png")    
 background = pygame.transform.scale(background, (370, 620))
 
-# load a image fot the pause
+# load pause logo
 pause = pygame.image.load("img/pause.png")
 pause = pygame.transform.scale(pause, (80, 80))
 
-clock = pygame.time.Clock() # management the time
-running = True  # the window is open
+clock = pygame.time.Clock() # manage the time
+running = True              # run the game
 
 game = Game()
 floor = Floor()
 floor2 = Floor(360)
 
-# fonts for the score
+# load the score font
 font = pygame.font.Font("font/HANGTHEDJ.ttf", 70)
 font2 = pygame.font.Font("font/HANGTHEDJ.ttf", 30)
 
 
 while running:
-    # display the images
+
+    # display images
     window.blit(background, (0, 0))
     window.blit(game.dragon.image, game.dragon.rect)
     game.all_towers1.draw(window)
     game.all_towers2.draw(window)
 
-    # display the score
+    # display score
     point = font.render(f"{game.dragon.point}", 1, (0, 0, 0))
     text_width, text_height = font.size(f"{game.dragon.point}")
     window.blit(point, (180-(text_width//2), 10))
 
-    high_point = font2.render(f"High score: {score_min_max(2)}", 1, (0, 0, 0))
-    high_point_width, high_point_height = font2.size(f"High score: {score_min_max(2)}")
+    high_score = font2.render(f"High score: {score_min_max(2)}", 1, (0, 0, 0))
+    high_score_width, high_score_height = font2.size(f"High score: {score_min_max(2)}")
  
     game.dragon.gravitate()
     game.game_over(window)
 
     if game.loose == True:
-        window.blit(high_point, ((180-high_point_width//2), 490))
+        window.blit(high_score, ((180-high_score_width//2), 490))
 
     if game.stop:
         window.blit(pause, (130, 220))
@@ -74,12 +75,12 @@ while running:
     floor2.sprite.draw(window)
 
     for event in pygame.event.get():
-        if event.type == pygame.QUIT: # to quit the window
+        if event.type == pygame.QUIT:       # exit game
             running = False
             pygame.quit()
             sys.exit()
         elif event.type == pygame.KEYDOWN:
-            if event.key == pygame.K_SPACE: # if space pressed
+            if event.key == pygame.K_SPACE: # when space is pressed
                 game.jump()
             elif event.key == pygame.K_RIGHT:
                 game.dragon.change_image()
@@ -92,5 +93,5 @@ while running:
                     else:
                         game.stop = True
 
-    clock.tick(60)  # put 60fps max
-    pygame.display.flip() # update the window
+    clock.tick(60)          # 60fps limit
+    pygame.display.flip()   # update screen

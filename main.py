@@ -46,8 +46,9 @@ while running:
     window.blit(point, (180-(text_width//2), 10))
 
     # Generate high score message
-    high_score = font2.render(f"High score: {score_min_max(2)}", 1, (0, 0, 0))
-    high_score_width, high_score_height = font2.size(f"High score: {score_min_max(2)}")
+    h_score = score_min_max(2)
+    high_score = font2.render(f"High score: {h_score}", 1, (0, 0, 0))
+    high_score_width, high_score_height = font2.size(f"High score: {h_score}")
 
     # Generate "Press SPACE to start !" mesage divided into 2 sections to seperate into 2 lines
     start_space_msg_line1 = font2.render("Press SPACE", 1, (0, 0, 0))
@@ -63,7 +64,7 @@ while running:
     game.game_over(window)
 
     if game.loose == True:
-        if high_score != 0:
+        if h_score != 0:
             window.blit(high_score, ((180 - high_score_width // 2), 490))
         window.blit(press_enter_msg, ((180 - press_enter_msg_width // 2), 420))
 
